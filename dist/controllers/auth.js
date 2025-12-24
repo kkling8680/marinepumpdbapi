@@ -30,7 +30,8 @@ const RegisterUser = async (req, res) => {
                 expiresAt: new Date(Date.now() + 15 * 60 * 1000),
             },
         });
-        await (0, email_2.sendEmail)(user.email, "Verify Your Email", (0, email_1.verifyEmailonRegistrationTemplate)(otp));
+        const emailresponse = await (0, email_2.sendEmail)(user.email, "Verify Your Email", (0, email_1.verifyEmailonRegistrationTemplate)(otp));
+        console.log(emailresponse);
         res.json({ message: "User registered. Please verify your email." });
     }
     catch (err) {
@@ -156,7 +157,8 @@ const RequestForgotPassword = async (req, res) => {
                 expiresAt: new Date(Date.now() + 15 * 60 * 1000),
             },
         });
-        await (0, email_2.sendEmail)(user.email, "Password Reset OTP", (0, email_1.verifyEmailForPasswordChangeTemplate)(otp));
+        const emailresponse = await (0, email_2.sendEmail)(user.email, "Password Reset OTP", (0, email_1.verifyEmailForPasswordChangeTemplate)(otp));
+        console.log(emailresponse);
         res.json({ message: "Password reset OTP sent to email." });
     }
     catch (err) {
