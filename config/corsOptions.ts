@@ -2,6 +2,8 @@ import cors from "cors";
 
 const allowedOrigins = (process.env.CORS_ORIGINS || "").split(",").map(o => o.trim());
 
+const allowAllOrigins = allowedOrigins.includes("*");
+
 const corsOptions = cors({
     origin: function (origin, callback) {
         // Allow requests with no origin (like mobile apps, Postman, Swagger UI, etc.)
@@ -10,7 +12,8 @@ const corsOptions = cors({
             return;
         }
         
-        if (allowedOrigins.includes("*")) {
+        // If wildcard is set, allow all origins
+        if (allowAllOrigins) {
             callback(null, true);
             return;
         }
@@ -21,11 +24,18 @@ const corsOptions = cors({
             callback(new Error("Not allowed by CORS"));
         }
     },
-    credentials: true,
+    credentials: !allowAllOrigins,
     optionsSuccessStatus: 200,
-    // Add these headers to support Swagger UI better
-    allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With'],
-    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS', 'PATCH']
+    allowedHeaders: [
+        'Content-Type', 
+        'Authorization', 
+        'X-Requested-With',
+        'Accept',
+        'Origin'
+    ],
+    exposedHeaders: ['Content-Length', 'X-Request-Id'],
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS', 'PATCH'],
+    maxAge: 86400, // 24 hours - cache preflight requests
 });
 
 export default corsOptions;
