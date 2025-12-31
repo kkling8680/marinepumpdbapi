@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Account Deletion – PumpDB</title>
+
+    <style>
+      :root {
+        --primary: #2563eb;
+        --secondary: #64748b;
+        --background: #f8fafc;
+        --card: #ffffff;
+        --danger: #dc2626;
+      }
+
+      * {
+        box-sizing: border-box;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+          Roboto, Ubuntu, sans-serif;
+      }
+
+      body {
+        margin: 0;
+        padding: 0;
+        background: var(--background);
+        color: #0f172a;
+      }
+
+      .container {
+        max-width: 720px;
+        margin: 60px auto;
+        padding: 0 20px;
+      }
+
+      .card {
+        background: var(--card);
+        border-radius: 12px;
+        padding: 32px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+      }
+
+      h1 {
+        font-size: 28px;
+        margin-bottom: 8px;
+      }
+
+      p {
+        color: var(--secondary);
+        line-height: 1.6;
+      }
+
+      .section {
+        margin-top: 28px;
+      }
+
+      .steps {
+        padding-left: 20px;
+      }
+
+      .steps li {
+        margin-bottom: 8px;
+      }
+
+      .highlight {
+        background: #eff6ff;
+        border-left: 4px solid var(--primary);
+        padding: 12px 16px;
+        border-radius: 6px;
+        margin-top: 16px;
+      }
+
+      .danger {
+        background: #fef2f2;
+        border-left: 4px solid var(--danger);
+        padding: 12px 16px;
+        border-radius: 6px;
+        margin-top: 16px;
+      }
+
+      footer {
+        margin-top: 32px;
+        font-size: 14px;
+        color: var(--secondary);
+        text-align: center;
+      }
+
+      a {
+        color: var(--primary);
+        text-decoration: none;
+        font-weight: 500;
+      }
+
+      a:hover {
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="card">
+        <h1>Account Deletion - MarinePumpDB</h1>
+        <p>
+          MarinePumpDB respects your privacy and gives you full control over your data.
+          You can permanently delete your account and associated data directly
+          from within the app.
+        </p>
+
+        <div class="section">
+          <h2>How to delete your account</h2>
+          <ol class="steps">
+            <li>Open the <strong>MarinePumpDB</strong> app</li>
+            <li>Log in to your <strong>account</strong></li>
+            <li>Go to <strong>Profile</strong></li>
+            <li>Select <strong>Delete Account</strong></li>
+            <li>Confirm the deletion request</li>
+          </ol>
+
+          <div class="highlight">
+            Account deletion is performed immediately after confirmation inside
+            the app.
+          </div>
+        </div>
+
+        <div class="section">
+          <h2>Data that is deleted</h2>
+          <ul class="steps">
+            <li>Email address</li>
+            <li>Authentication credentials</li>
+            <li>User profile information</li>
+            <li>All user-generated content</li>
+          </ul>
+        </div>
+
+        <div class="section">
+          <h2>Data retention</h2>
+          <div class="danger">
+            All personal data is permanently deleted once the account deletion is
+            confirmed. No personal data is retained after deletion.
+          </div>
+        </div>
+
+        <div class="section">
+          <h2>Need help?</h2>
+          <p>
+            If you experience any issues deleting your account, please contact
+            us at
+            <a href="mailto:support@marinepumpdb.com"
+              >support@marinepumpdb.com</a
+            >
+          </p>
+        </div>
+      </div>
+
+      <footer>
+        © <span id="year"></span> PumpDB. All rights reserved.
+      </footer>
+    </div>
+
+    <script>
+      document.getElementById("year").textContent =
+        new Date().getFullYear();
+    </script>
+  </body>
+</html>
