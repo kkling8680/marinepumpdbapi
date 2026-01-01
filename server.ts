@@ -30,6 +30,10 @@ app.get("/delete-account", (_, res) => {
   res.sendFile(path.join(__dirname, "public", "delete-account.html"));
 });
 
+app.get("/privacy-policy", (_, res) => {
+  res.sendFile(path.join(__dirname, "public", "privacy-policy.html"));
+});
+
 app.get("/", (req, res) => res.send("API is running ✅"));
 
 const PORT = process.env.PORT || 5000;
